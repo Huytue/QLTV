@@ -1,0 +1,13 @@
+aa,Anh Van,Kim Dong,Nha Xuat Ban va Dao Tao,20000,2010,200,1,1,2019,0
+tt,Toan,Kim Dong,Nha Xuat Ban va Dao Tao,30000,2010,200,3,2,2019,0
+nv,Ngu Van,Kim Dong,Nha Xuat Ban va Dao Tao,30000,2010,200,5,6,2018,0
+ls,Lich Su,Kim Dong,Nha Xuat Ban va Dao Tao,15000,2010,200,2,4,2019,0
+hh,Hoa Hoc,Kim Dong,Nha Xuat Ban va Dao Tao,40000,2010,200,2,8,2018,0
+vl,Vat Ly,Kim Dong,Nha Xuat Ban va Dao Tao,35000,2010,200,7,1,2019,0
+dl,Dia Ly,Kim Dong,Nha Xuat Ban va Dao Tao,27000,2010,200,30,11,2018,0
+lt,Lap Trinh,Kim Dong,Nha Xuat Ban va Dao Tao,23000,2010,200,24,5,2018,0
+ty,Tinh Yeu,Kim Dong,Nha Xuat Ban va Dao Tao,34000,2010,200,16,2,2019,0
+pl,Phap Luat,Kim Dong,Nha Xuat Ban va Dao Tao,67000,2010,200,17,3,2019,0
+tc,Tai Chinh,Bui Tham Duong,Kim Dong,150000,2013,500,23,5,2017,0
+ee,Doraemon,fujko,Kim dong,20000,2006,200,5,7,2019,0
+,Doraemon,fujko,Kim dong,20000,2006,200,5,7,2019,0

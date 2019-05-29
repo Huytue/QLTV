@@ -1,0 +1,6 @@
+
+2,sv1,Binh An,cntt,21,5,2019,2018
+2,sv6,An An,2018,21,5,2019,2018
+1,gv1,Phan Trinh,Cong Nghe Thong Tin,21,5,2019,quan 9,0909080809
+2,sv2,Van Khoi,Cong Nghe Thong Tin,21,5,2019,2018
+1,gv2,Quoc Dien,Chinh tri,21,5,2019,Binh Tan,0908080706

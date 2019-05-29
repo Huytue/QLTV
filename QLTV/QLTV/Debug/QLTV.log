@@ -1,0 +1,11 @@
+﻿  Admin.cpp
+  BanDoc.cpp
+  Date.cpp
+  GiaoVien.cpp
+  Main.cpp
+C:\Users\Admin\source\repos\QLTV\QLTV\Main.cpp(68): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  PhieuMuon.cpp
+  Sach.cpp
+  SinhVien.cpp
+  Generating Code...
+  QLTV.vcxproj -> C:\Users\Admin\source\repos\QLTV\Debug\QLTV.exe
