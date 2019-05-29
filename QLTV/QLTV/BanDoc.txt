@@ -1,6 +1,5 @@
-
-2,sv1,Binh An,cntt,21,5,2019,2018
-2,sv6,An An,2018,21,5,2019,2018
-1,gv1,Phan Trinh,Cong Nghe Thong Tin,21,5,2019,quan 9,0909080809
-2,sv2,Van Khoi,Cong Nghe Thong Tin,21,5,2019,2018
-1,gv2,Quoc Dien,Chinh tri,21,5,2019,Binh Tan,0908080706
+1,gv01,Tran Thi Thuc Trinh,CNTT,29,5,2019,Go vap,01112344556
+1,gv02,Nguyen Vinh Hien,Dien,29,5,2019,Thu Duc,0555555666
+2,sv01,Nguyen Huy Tue,CNTT,29,5,2019,2018
+2,sv02,Mai Xuan Tri,Auto,29,5,2019,2017
+2,sv03,Tran Cong Hoa,QTKD,29,5,2019,2018

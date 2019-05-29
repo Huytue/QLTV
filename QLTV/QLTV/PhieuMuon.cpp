@@ -268,13 +268,13 @@ bool PhieuMuon::ktrNamNhuan()
 }
 void PhieuMuon::xuat()
 {
-	cout << "-------------------------------------------------\n";
-	cout << "<So phieu muon>    :" << this->nMaPhieuMuon << endl;
-	cout << "<Ma sach>          :" << this->xSach.getMS() << endl;
-	cout << "<Ma ban doc>       :" << this->xBanDoc.getMaBanDoc() << endl;
-	cout << "<Ngay muon>        :"; this->xNgayMuon.xuat();
+	cout << "\t\t------------------------------------------\n";
+	cout << "\t\t<So phieu muon>    :" << this->nMaPhieuMuon << endl;
+	cout << "\t\t<Ma sach>          :" << this->xSach.getMS() << endl;
+	cout << "\t\t<Ma ban doc>       :" << this->xBanDoc.getMaBanDoc() << endl;
+	cout << "\t\t<Ngay muon>        :"; this->xNgayMuon.xuat();
 	cout << endl;
-	cout << "<Ngay phai tra>         :"; this->xNgayTra.xuat();
+	cout << "\t\t<Ngay phai tra>    :"; this->xNgayTra.xuat();
 	cout << endl;
-	cout << "<Tinh trang>       :" << this->nTrangThai << endl;
+	cout << "\t\t<Tinh trang>       :" << this->nTrangThai << endl;
 }

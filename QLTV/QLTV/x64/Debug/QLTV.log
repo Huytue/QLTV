@@ -1,0 +1,3 @@
+﻿  Main.cpp
+C:\Users\Admin\Documents\GitHub\QLTV\QLTV\QLTV\Main.cpp(74): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  QLTV.vcxproj -> C:\Users\Admin\Documents\GitHub\QLTV\QLTV\x64\Debug\QLTV.exe

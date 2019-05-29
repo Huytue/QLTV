@@ -55,5 +55,5 @@ public:
 	int nNamPlus(int nN);
 	bool ktrNamNhuan();
 	void xuat();
-	~PhieuMuon(void) {};
+	~PhieuMuon() {};
 };

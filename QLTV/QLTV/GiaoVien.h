@@ -3,6 +3,7 @@
 class GiaoVien :
 	public BanDoc
 {
+protected:
 	string sDiaChi;
 	string sSDT;
 public:
@@ -13,6 +14,6 @@ public:
 		this->sSDT = sSDT;
 	}
 	void output();
-	~GiaoVien(void){};
+	~GiaoVien() {};
 };
 

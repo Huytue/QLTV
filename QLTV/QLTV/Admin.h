@@ -4,6 +4,7 @@
 using namespace std;
 class Admin
 {
+private:
 	string sUserName;
 	string sPassWord;
 public:
@@ -22,6 +23,6 @@ public:
 	void setUser(string sUserName);
 	void setPass(string sPassWord);
 	void setUserPassWord(string sUserName, string sPassWord);
-	~Admin(void){};
+	~Admin(){};
 };
 

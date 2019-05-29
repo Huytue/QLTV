@@ -2,7 +2,7 @@
 -------THANH VIEN NHOM-------
 Nguyen Huy Tue
 Nguyen Vinh Hien
-Thuc Trinh
+Tran Thi Thuc Trinh
 Mai Xuan Tri
 Tran Cong Hoa
 	
@@ -387,6 +387,10 @@ void traSach(list <PhieuMuon> &LPhieuMuon, list <BanDoc*> LBanDoc, list <Sach> &
 		cout << "\n\t   -----------------Them Phieu Muon---------------\n\n";
 		Color(13);
 		cout << "\t\tNhap ma phieu muon can tra sach: "; cin >> nMPM;
+		if (nMPM == 0 )
+		{
+			return;
+		}
 		list <PhieuMuon> ::iterator p = LPhieuMuon.begin();
 		while (p != LPhieuMuon.end())
 		{
@@ -397,15 +401,13 @@ void traSach(list <PhieuMuon> &LPhieuMuon, list <BanDoc*> LBanDoc, list <Sach> &
 					flag = 1;
 					p->setTrangThai(0); // gan tinh trang 0 cho phieu muon muon tra sach
 					string sMaSach = p->getSach().getMS();
-					list <Sach> ::iterator q = LSach.begin();
-					while (q != LSach.end())
+					for (list <Sach> ::iterator q = LSach.begin(); q != LSach.end(); q++)
 					{
 						if (q->getMS() == sMaSach)
 						{
 							q->setTinhTrang(0); // gan trai thang 0 cho sach da duoc tra
 							break;
 						}
-						q++;
 					}
 					ghiDsSach(LSach);
 					ghiDsPhieuMuon(LPhieuMuon, LBanDoc, LSach);
@@ -495,19 +497,27 @@ void themPhieuMuon(list <PhieuMuon> &LPhieuMuon, list <BanDoc*> LBanDoc, list <S
 	string sMS = "";
 	while (true)
 	{
+		Color(14);
 		cout << "\t\tNhap ma sach: ";
 		rewind(stdin);
 		getline(cin, sMS);
 		if (sMS == "")
 		{
 			Color(4);
-			cout << "Khong duoc de trong ! \n";
+			cout << "\n\t\tKhong duoc de trong ! \n\n\t\t";
 			Color(7);
 			system("pause");
 		}
 		else if (kiemTraSachMuon(LSach, sMS) == true)
 		{
 			break;
+		}
+		else if (sMS == "ESC" || sMS == "esc")
+		{
+			Color(10);
+			cout << "\t\tBan chon thoat!\n";
+			Color(7);
+			return;
 		}
 		else
 		{
@@ -522,10 +532,10 @@ void themPhieuMuon(list <PhieuMuon> &LPhieuMuon, list <BanDoc*> LBanDoc, list <S
 	Color(10);
 	cout << "\t\tTao phieu muon thanh cong!\n";
 	Color(7);
-	ofstream File;
-	File.open("PhieuMuon.txt", ios::app);
-	File << "\n" << LPhieuMuon.rbegin()->getMaPhieuMuon() << "," << LPhieuMuon.rbegin()->getBanDoc().getMaBanDoc() << "," << LPhieuMuon.rbegin()->getSach().getMS() << "," << LPhieuMuon.rbegin()->getNgayMuon().getNgay() << "," << LPhieuMuon.rbegin()->getNgayMuon().getThang() << "," << LPhieuMuon.rbegin()->getNgayMuon().getNam() << "," << LPhieuMuon.rbegin()->getNgayTra().getNgay() << "," << LPhieuMuon.rbegin()->getNgayTra().getThang() << "," << LPhieuMuon.rbegin()->getNgayTra().getNam() << "," << LPhieuMuon.rbegin()->getTrangThai();
-	File.close();
+	ofstream fout;
+	fout.open("PhieuMuon.txt", ios::app);
+	fout << "\n" << LPhieuMuon.rbegin()->getMaPhieuMuon() << "," << LPhieuMuon.rbegin()->getBanDoc().getMaBanDoc() << "," << LPhieuMuon.rbegin()->getSach().getMS() << "," << LPhieuMuon.rbegin()->getNgayMuon().getNgay() << "," << LPhieuMuon.rbegin()->getNgayMuon().getThang() << "," << LPhieuMuon.rbegin()->getNgayMuon().getNam() << "," << LPhieuMuon.rbegin()->getNgayTra().getNgay() << "," << LPhieuMuon.rbegin()->getNgayTra().getThang() << "," << LPhieuMuon.rbegin()->getNgayTra().getNam() << "," << LPhieuMuon.rbegin()->getTrangThai();
+	fout.close();
 	int nTinhTrang = LPhieuMuon.rbegin()->getMaPhieuMuon(); // trang thai
 	list <Sach> ::iterator p = LSach.begin();
 	while (p != LSach.end())
@@ -542,25 +552,24 @@ void themPhieuMuon(list <PhieuMuon> &LPhieuMuon, list <BanDoc*> LBanDoc, list <S
 }
 void ghiDsPhieuMuon(list <PhieuMuon> LPhieuMuon, list <BanDoc*> LBanDoc, list <Sach> LSach)
 {
-
 	int nTongPM = demTongPhieuMuon(LPhieuMuon);
 	int nDem = 1;
-	ofstream File;
-	File.open("PhieuMuon.txt");
+	ofstream fout;
+	fout.open("PhieuMuon.txt");
 	list <PhieuMuon> ::iterator p = LPhieuMuon.begin();
 	while (p != LPhieuMuon.end())
 	{
-		File << p->getMaPhieuMuon() << "," << p->getBanDoc().getMaBanDoc() << "," << p->getSach().getMS() << "," << p->getNgayMuon().getNgay() << "," <<
+		fout << p->getMaPhieuMuon() << "," << p->getBanDoc().getMaBanDoc() << "," << p->getSach().getMS() << "," << p->getNgayMuon().getNgay() << "," <<
 			p->getNgayMuon().getThang() << "," << p->getNgayMuon().getNam() << "," << p->getNgayTra().getNgay() << "," << p->getNgayTra().getThang() << "," << 
 			p->getNgayTra().getNam() << "," << p->getTrangThai();
 		if (nDem < nTongPM)
 		{
-			File << endl;
+			fout << endl;
 			nDem++;
 		}
 		p++;
 	}
-	File.close();
+	fout.close();
 }
 void xuatDsPhieuMuon(list <PhieuMuon> LPhieuMuon)
 {
@@ -583,32 +592,32 @@ void docDsPhieuMuon(list <PhieuMuon> &LPhieuMuon)
 	int nThangTra = 0;
 	int nNamTra = 0;
 	int nTrangThai = 0;
-	ifstream File;
-	File.open("PhieuMuon.txt");
-	while (!File.eof())
+	ifstream fin;
+	fin.open("PhieuMuon.txt");
+	while (!fin.eof())
 	{
-		File >> nSPM;
-		File.ignore(1, ',');
-		getline(File, sMBD, ',');
-		getline(File, sMS, ',');
-		File >> nNgayMuon;
-		File.ignore(1, ',');
-		File >> nThangMuon;
-		File.ignore(1, ',');
-		File >> nNamMuon;
-		File.ignore(1, ',');
-		File >> nNgayTra;
-		File.ignore(1, ',');
-		File >> nThangTra;
-		File.ignore(1, ',');
-		File >> nNamTra;
-		File.ignore(1, ',');
-		File >> nTrangThai;
-		File.ignore(1, '\n');
+		fin >> nSPM;
+		fin.ignore(1, ',');
+		getline(fin, sMBD, ',');
+		getline(fin, sMS, ',');
+		fin >> nNgayMuon;
+		fin.ignore(1, ',');
+		fin >> nThangMuon;
+		fin.ignore(1, ',');
+		fin >> nNamMuon;
+		fin.ignore(1, ',');
+		fin >> nNgayTra;
+		fin.ignore(1, ',');
+		fin >> nThangTra;
+		fin.ignore(1, ',');
+		fin >> nNamTra;
+		fin.ignore(1, ',');
+		fin >> nTrangThai;
+		fin.ignore(1, '\n');
 		PhieuMuon pm(nSPM, sMBD, sMS, nNgayMuon, nThangMuon, nNamMuon, nNgayTra, nThangTra, nNamTra, nTrangThai);
 		LPhieuMuon.push_back(pm);
 	}
-	File.close();
+	fin.close();
 }
 //DS Ban Doc
 int soLuongBanDocSinhVien(list <BanDoc*> LBanDoc)
@@ -616,22 +625,23 @@ int soLuongBanDocSinhVien(list <BanDoc*> LBanDoc)
 	int nDem = 0;
 	int nLoai = 0;
 	string sMaBD = "";
-	ifstream File;
-	File.open("BanDoc.txt");
-	while (!File.eof())
+	ifstream fin;
+	fin.open("BanDoc.txt");
+	while (!fin.eof())
 	{
-		File >> nLoai;
-		File.ignore(1, ',');
+		fin >> nLoai;
+		fin.ignore(1, ',');
 		if (nLoai == 1)
 		{
-			getline(File, sMaBD, '\n');
+			getline(fin, sMaBD, '\n');
 		}
 		else if (nLoai == 2)
 		{
 			nDem++;
-			getline(File, sMaBD, '\n');
+			getline(fin, sMaBD, '\n');
 		}
 	}
+	fin.close();
 	return nDem;
 }
 int soLuongBanDocGiaoVien(list <BanDoc*> LBanDoc)
@@ -647,43 +657,43 @@ int soLuongBanDocGiaoVien(list <BanDoc*> LBanDoc)
 	string sDC = "";
 	string sSDT = "";
 	int nKhoaHoc = 0;
-	ifstream File;
-	File.open("BanDoc.txt");
-	while (!File.eof())
+	ifstream fin;
+	fin.open("BanDoc.txt");
+	while (!fin.eof())
 	{
-		File >> nLoai;
-		File.ignore(1, ',');
+		fin >> nLoai;
+		fin.ignore(1, ',');
 		if (nLoai == 1)
 		{
 			nDem++;
-			getline(File, sMaBD, ',');
-			getline(File, sHoTen, ',');
-			getline(File, sKhoa, ',');
-			File >> nNgay;
-			File.ignore(1, ',');
-			File >> nThang;
-			File.ignore(1, ',');
-			File >> nNam;
-			File.ignore(1, ',');
-			getline(File, sDC, ',');
-			getline(File, sSDT, '\n');
+			getline(fin, sMaBD, ',');
+			getline(fin, sHoTen, ',');
+			getline(fin, sKhoa, ',');
+			fin >> nNgay;
+			fin.ignore(1, ',');
+			fin >> nThang;
+			fin.ignore(1, ',');
+			fin >> nNam;
+			fin.ignore(1, ',');
+			getline(fin, sDC, ',');
+			getline(fin, sSDT, '\n');
 		}
 		else if (nLoai == 2)
 		{
-			getline(File, sMaBD, ',');
-			getline(File, sHoTen, ',');
-			getline(File, sKhoa, ',');
-			File >> nNgay;
-			File.ignore(1, ',');
-			File >> nThang;
-			File.ignore(1, ',');
-			File >> nNam;
-			File.ignore(1, ',');
-			File >> nKhoaHoc;
-			File.ignore(1, '\n');
+			getline(fin, sMaBD, ',');
+			getline(fin, sHoTen, ',');
+			getline(fin, sKhoa, ',');
+			fin >> nNgay;
+			fin.ignore(1, ',');
+			fin >> nThang;
+			fin.ignore(1, ',');
+			fin >> nNam;
+			fin.ignore(1, ',');
+			fin >> nKhoaHoc;
+			fin.ignore(1, '\n');
 		}
 	}
-	File.close();
+	fin.close();
 	return nDem;
 }
 void themBanDoc(list <BanDoc*> &LBanDoc)
@@ -709,17 +719,27 @@ void themBanDoc(list <BanDoc*> &LBanDoc)
 		{
 			nLoaiBD = 1;
 			int nTongSL = soLuongBanDocGiaoVien(LBanDoc);
+		dd:	Color(11);
 			cout << "\t\tNhap ma ban doc:"; rewind(stdin); getline(cin, sMaBD);
+			for (list <BanDoc*> ::iterator p = LBanDoc.begin(); p != LBanDoc.end(); p++)
+			{
+				if (sMaBD == (*p)->getMaBanDoc())
+				{
+					Color(4);
+					cout << "\t\tMa ban doc da ton tai. Vui long nhap lai!\n";
+					goto dd;
+				}
+			}
 			cout << "\t\tNhap ho va ten: "; rewind(stdin); getline(cin, sHoTen);
 			cout << "\t\tNhap Khoa: "; rewind(stdin); getline(cin, sKhoa);
 			cout << "\t\tNhap dia chi: "; rewind(stdin); getline(cin, sDC);
 			cout << "\t\tNhap so dien thoai: "; rewind(stdin); getline(cin, sSDT);
 			BanDoc * gv = new GiaoVien(sMaBD, sHoTen, sKhoa, nNgay, nThang, nNam, sDC, sSDT);
 			LBanDoc.push_back(gv);
-			ofstream File;
-			File.open("BanDoc.txt", ios::app);
-			File << "\n" << nLoaiBD << "," << sMaBD << "," << sHoTen << "," << sKhoa << "," << nNgay << "," << nThang << "," << nNam << "," << sDC << "," << sSDT;
-			File.close();
+			ofstream fout;
+			fout.open("BanDoc.txt", ios::app);
+			fout << "\n" << nLoaiBD << "," << sMaBD << "," << sHoTen << "," << sKhoa << "," << nNgay << "," << nThang << "," << nNam << "," << sDC << "," << sSDT;
+			fout.close();
 			Color(10);
 			cout << "\t\tThem ban doc thanh cong!\n ";
 			system("pause");
@@ -727,18 +747,28 @@ void themBanDoc(list <BanDoc*> &LBanDoc)
 		}
 		else if (nLoaiBD == 2)
 		{
-			nLoaiBD = 2;
+		cc:	nLoaiBD = 2;
 			int nTongSL = soLuongBanDocSinhVien(LBanDoc);
+			Color(11);
 			cout << "\t\tNhap ma ban doc:"; rewind(stdin); getline(cin, sMaBD);
+			for (list <BanDoc*> ::iterator p = LBanDoc.begin(); p != LBanDoc.end(); p++)
+			{
+				if (sMaBD == (*p)->getMaBanDoc())
+				{
+					Color(4);
+					cout << "\t\tMa ban doc da ton tai. Vui long nhap lai!\n";
+					goto cc;
+				}
+			}
 			cout << "\t\tNhap ho va ten: "; rewind(stdin); getline(cin, sHoTen);
 			cout << "\t\tNhap Khoa: "; rewind(stdin); getline(cin, sKhoa);
 			cout << "\t\tNhap Khoa Hoc: "; cin >> nKhoaHoc;
 			BanDoc *  sv = new SinhVien(sMaBD, sHoTen, sKhoa, nNgay, nThang, nNam, nKhoaHoc);
 			LBanDoc.push_back(sv);
-			ofstream File;
-			File.open("BanDoc.txt", ios::app);
-			File << "\n" << nLoaiBD << "," << sMaBD << "," << sHoTen << "," << sKhoa << "," << nNgay << "," << nThang << "," << nNam << "," << nKhoaHoc;
-			File.close();
+			ofstream fout;
+			fout.open("BanDoc.txt", ios::app);
+			fout << "\n" << nLoaiBD << "," << sMaBD << "," << sHoTen << "," << sKhoa << "," << nNgay << "," << nThang << "," << nNam << "," << nKhoaHoc;
+			fout.close();
 			Color(10);
 			cout << "\t\tThem ban doc thanh cong!\n ";
 			system("pause");
@@ -827,46 +857,96 @@ void docDsBanDoc(list <BanDoc*> &LBanDoc)
 	string sDC = "";
 	string sSDT = "";
 	int nKhoaHoc = 0;
-	ifstream File;
-	File.open("BanDoc.txt");
-	while (!File.eof())
+	ifstream fin;
+	fin.open("BanDoc.txt");
+	while (!fin.eof())
 	{
-		File >> nLoai;
-		File.ignore(1, ',');
+		fin >> nLoai;
+		fin.ignore(1, ',');
 		if (nLoai == 1)
 		{
-			getline(File, sMaBD, ',');
-			getline(File, sHoTen, ',');
-			getline(File, sKhoa, ',');
-			File >> nNgay;
-			File.ignore(1, ',');
-			File >> nThang;
-			File.ignore(1, ',');
-			File >> nNam;
-			File.ignore(1, ',');
-			getline(File, sDC, ',');
-			getline(File, sSDT, '\n');
+			getline(fin, sMaBD, ',');
+			getline(fin, sHoTen, ',');
+			getline(fin, sKhoa, ',');
+			fin >> nNgay;
+			fin.ignore(1, ',');
+			fin >> nThang;
+			fin.ignore(1, ',');
+			fin >> nNam;
+			fin.ignore(1, ',');
+			getline(fin, sDC, ',');
+			getline(fin, sSDT, '\n');
 			BanDoc * gv = new GiaoVien(sMaBD, sHoTen, sKhoa, nNgay, nThang, nNam, sDC, sSDT);
 			LBanDoc.push_back(gv);
 		}
 		else if (nLoai == 2)
 		{
-			getline(File, sMaBD, ',');
-			getline(File, sHoTen, ',');
-			getline(File, sKhoa, ',');
-			File >> nNgay;
-			File.ignore(1, ',');
-			File >> nThang;
-			File.ignore(1, ',');
-			File >> nNam;
-			File.ignore(1, ',');
-			File >> nKhoaHoc;
-			File.ignore(1, '\n');
+			getline(fin, sMaBD, ',');
+			getline(fin, sHoTen, ',');
+			getline(fin, sKhoa, ',');
+			fin >> nNgay;
+			fin.ignore(1, ',');
+			fin >> nThang;
+			fin.ignore(1, ',');
+			fin >> nNam;
+			fin.ignore(1, ',');
+			fin >> nKhoaHoc;
+			fin.ignore(1, '\n');
 			BanDoc * sv = new SinhVien(sMaBD, sHoTen, sKhoa, nNgay, nThang, nNam, nKhoaHoc);
 			LBanDoc.push_back(sv);
 		}
 	}
-	File.close();
+	fin.close();
+}
+void xoaBanDoc(list <BanDoc>& LBanDoc)
+{
+	Color(4);
+	cout << "\t\t\t\t   Nhap N de thoat! \n";
+	string sBanDocCanXoa = "";
+nhapLaiMaSach:
+	Color(13);
+	rewind(stdin);
+	cout << "\t\tNhap ma ban doc can xoa: ";
+	getline(cin, sBanDocCanXoa);
+	if (sBanDocCanXoa == "N" || sBanDocCanXoa == "n")
+	{
+		Color(10);
+		cout << "\t\tBan da chon thoat! \n";
+		Color(7);
+	}
+	else
+	{
+		int flag = 0;
+		list <BanDoc>::iterator p = LBanDoc.begin();
+		while (p != LBanDoc.end())
+		{
+			if (sBanDocCanXoa == p->getMaBanDoc())
+			{
+				flag = 0;
+				Color(10);
+				cout << "\n\t\t\t\t  Xoa sach thanh cong!\n";
+				Color(7);
+				LBanDoc.erase(p);
+				break;
+			}
+			else
+			{
+				LBanDoc.push_back(*(p));
+				ofstream fout;
+				fout.open("BanDoc.txt", ios::app);
+				flag = 1;
+			}
+			p++;
+		}
+		if (flag == 1)
+		{
+			Color(4);
+			cout << "\n\t\tMa so sach khong ton tai, hoac sach dang duoc muon!\n\n";
+			Color(7);
+			goto nhapLaiMaSach;
+		}
+	}
+
 }
 //DS Sach
 int nDemSachDaMuon(list <Sach> LSach)
@@ -1080,22 +1160,22 @@ nhapLaiNhaXuatBan:
 }
 void ghiDsSach(list <Sach> LSach)
 {
-	ofstream File;
-	File.open("Sach.txt");
+	ofstream fout;
+	fout.open("Sach.txt");
 	int nDem = 1;
 	int nTongSoSach = demSachHienCo(LSach);
 	list <Sach>::iterator p = LSach.begin();
 	while (p != LSach.end())
 	{
-		File << p->getMS() << "," << p->getTD() << "," << p->getTG() << "," << p->getNXB() << "," << p->getGia() << "," << p->getNPH() << "," << p->getST() << "," << p->getNgayNK() << "," << p->getThangNK() << "," << p->getNamNK() << "," << p->getTinhTrang();
+		fout << p->getMS() << "," << p->getTD() << "," << p->getTG() << "," << p->getNXB() << "," << p->getGia() << "," << p->getNPH() << "," << p->getST() << "," << p->getNgayNK() << "," << p->getThangNK() << "," << p->getNamNK() << "," << p->getTinhTrang();
 		if (nDem < nTongSoSach)
 		{
-			File << endl;
+			fout << endl;
 			nDem++;
 		}
 		p++;
 	}
-	File.close();
+	fout.close();
 }
 void xuatDsSach(list <Sach> LSach)
 {
@@ -1124,32 +1204,32 @@ void docDsSach(list <Sach> &LSach)
 	int nThang = 0;
 	int nNam = 0;
 	int nTinhTrang = 0;
-	ifstream File;
-	File.open("Sach.txt", ios::in);
-	while (!File.eof())
+	ifstream fin;
+	fin.open("Sach.txt");
+	while (!fin.eof())
 	{
-		getline(File, sMS, ',');
-		getline(File, sTuaDe, ',');
-		getline(File, sTacGia, ',');
-		getline(File, sNXB, ',');
-		File >> fTriGia;
-		File.ignore(1, ',');
-		File >> nNamPhatHanh;
-		File.ignore(1, ',');
-		File >> nSoTrang;
-		File.ignore(1, ',');
-		File >> nNgay;
-		File.ignore(1, ',');
-		File >> nThang;
-		File.ignore(1, ',');
-		File >> nNam;
-		File.ignore(1, ',');
-		File >> nTinhTrang;
-		File.ignore(1, '\n');
+		getline(fin, sMS, ',');
+		getline(fin, sTuaDe, ',');
+		getline(fin, sTacGia, ',');
+		getline(fin, sNXB, ',');
+		fin >> fTriGia;
+		fin.ignore(1, ',');
+		fin >> nNamPhatHanh;
+		fin.ignore(1, ',');
+		fin >> nSoTrang;
+		fin.ignore(1, ',');
+		fin >> nNgay;
+		fin.ignore(1, ',');
+		fin >> nThang;
+		fin.ignore(1, ',');
+		fin >> nNam;
+		fin.ignore(1, ',');
+		fin >> nTinhTrang;
+		fin.ignore(1, '\n');
 		Sach s(sMS, sTuaDe, sTacGia, sNXB, fTriGia, nNamPhatHanh, nSoTrang, nNgay, nThang, nNam, nTinhTrang);
 		LSach.push_back(s);
 	}
-	File.close();
+	fin.close();
 }
 int demSachHienCo(list <Sach> LSach)
 {
@@ -1258,6 +1338,7 @@ void dangNhap(list <Admin> L, list <Sach> LSach, list <BanDoc*> LBanDoc, list <P
 							}
 							else if (nChucNangMenu == 3)
 							{
+								Color(14);
 								xuatDsPhieuMuon(LPhieuMuon);
 								system("pause");
 							}
@@ -1398,18 +1479,18 @@ void doc_Admin(list <Admin> &L)
 	Admin xAdmin;
 	string sUser = "";
 	string sPassWord = "";
-	ifstream File;
-	File.open("Admin.txt", ios::in);
-	while (!File.eof())
+	ifstream fin;
+	fin.open("Admin.txt", ios::in);
+	while (!fin.eof())
 	{
-		getline(File, sUser, ',');
+		getline(fin, sUser, ',');
 		xAdmin.setUser(sUser);
-		getline(File, sPassWord);
+		getline(fin, sPassWord);
 		xAdmin.setPass(sPassWord);
 		L.push_back(xAdmin);
-		File.ignore(0, '\n');
+		fin.ignore(0, '\n');
 	}
-	File.close();
+	fin.close();
 }
 void Color(int nX)
 {

@@ -2,7 +2,6 @@
 
 void BanDoc::xuat()
 {
-	
 	cout << "\t\tMa doc gia: " << this->sMaBD << endl;
 	cout << "\t\tNgay dang ky the: ";
 	xNgay.xuat(); cout << endl;

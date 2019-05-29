@@ -38,6 +38,6 @@ public:
 	int getTinhTrang();
 	void setTinhTrang(int a);
 	void outputSach();
-	~Sach(void){};
+	~Sach(){};
 };
 

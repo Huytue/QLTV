@@ -1,13 +1,10 @@
-aa,Anh Van,Kim Dong,Nha Xuat Ban va Dao Tao,20000,2010,200,1,1,2019,0
-tt,Toan,Kim Dong,Nha Xuat Ban va Dao Tao,30000,2010,200,3,2,2019,0
-nv,Ngu Van,Kim Dong,Nha Xuat Ban va Dao Tao,30000,2010,200,5,6,2018,0
-ls,Lich Su,Kim Dong,Nha Xuat Ban va Dao Tao,15000,2010,200,2,4,2019,0
-hh,Hoa Hoc,Kim Dong,Nha Xuat Ban va Dao Tao,40000,2010,200,2,8,2018,0
-vl,Vat Ly,Kim Dong,Nha Xuat Ban va Dao Tao,35000,2010,200,7,1,2019,0
-dl,Dia Ly,Kim Dong,Nha Xuat Ban va Dao Tao,27000,2010,200,30,11,2018,0
-lt,Lap Trinh,Kim Dong,Nha Xuat Ban va Dao Tao,23000,2010,200,24,5,2018,0
-ty,Tinh Yeu,Kim Dong,Nha Xuat Ban va Dao Tao,34000,2010,200,16,2,2019,0
-pl,Phap Luat,Kim Dong,Nha Xuat Ban va Dao Tao,67000,2010,200,17,3,2019,0
-tc,Tai Chinh,Bui Tham Duong,Kim Dong,150000,2013,500,23,5,2017,0
-ee,Doraemon,fujko,Kim dong,20000,2006,200,5,7,2019,0
-,Doraemon,fujko,Kim dong,20000,2006,200,5,7,2019,0
+aa,Doraemon,Fujko,Kim dong,30000,2015,121,29,5,2019,6
+bb,Conan,Shinichi,Kawasaki,15000,1995,100,12,5,1999,0
+cc,KinhVanHoa,HuyTue,KimDong,20000,2000,500,25,4,2004,0
+dd,AnhHungXaDieu,KimDung,KimDong,30000,1989,1000,15,2,1995,0
+ee,HoaVangTrenCoXanh,HuyTue,ThucTrinh,25000,1980,350,13,12,1992,0
+ff,DeMenPhieuLuuKy,ToHoai,XuanTri,100000,1990,400,9,9,1991,0
+gg,VatLy12,NULL,BoGD&DT,15000,2015,200,1,1,2017,0
+hh,ToanHoc12,NULL,BoGD&DT,20000,2016,150,1,1,2017,0
+ii,HoaHoc12,NULL,BoGD&DT,19000,2017,150,1,1,2018,0
+kk,SinhHoc12,NULL,BoGD&DT,18500,2018,200,1,1,2019,0

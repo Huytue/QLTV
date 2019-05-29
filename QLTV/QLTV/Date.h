@@ -7,10 +7,12 @@ class Sach;
 class PhieuMuon;
 class Date
 {
+protected:
 	int nNgay;
 	int nThang;
 	int nNam;
 public:
+	
 	friend BanDoc;
 	friend Sach;
 	friend PhieuMuon;
@@ -34,5 +36,5 @@ public:
 	void setNam(int nNam);
 	void set_NgayThangNam(int nNgay, int nThang, int nNam);
 	void xuat();
-	~Date(void){};
+	~Date(){};
 };
