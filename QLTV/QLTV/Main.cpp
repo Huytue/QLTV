@@ -8,23 +8,14 @@ Tran Cong Hoa
 	
 */
 // Khai bao thu vien:
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <Windows.h>
-#include <conio.h>
-#include <list>
-#include <iomanip>
-#include "Admin.h"
+
 #include "SinhVien.h"
 #include "PhieuMuon.h"
 #include "Sach.h"
 using namespace std;
 int PhieuMuon::nTongPhieuMuon = 0;
 //Admin
-void doc_Admin(list <Admin> &L);
-void dangNhap(list <Admin> L, list <Sach> LSach, list <BanDoc*> LBanDoc, list <PhieuMuon> LPhieuMuon);
-void Color(int xcolor);
+
 string maHoaPassword(unsigned maxLength);
 //DS ban doc
 void docDsBanDoc(list <BanDoc*> &LBanDoc);
