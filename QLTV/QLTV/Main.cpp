@@ -16,7 +16,6 @@ Tran Cong Hoa
 #include <list>
 #include <iomanip>
 #include "Admin.h"
-#include "GiaoVien.h"
 #include "SinhVien.h"
 #include "PhieuMuon.h"
 #include "Sach.h"
