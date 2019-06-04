@@ -4,7 +4,7 @@ Nguyen Huy Tue
 Nguyen Vinh Hien
 Tran Thi Thuc Trinh
 Mai Xuan Tri
-
+Tran Cong Hoa
 	
 */
 // Khai bao thu vien:
@@ -14,7 +14,6 @@ Mai Xuan Tri
 #include <Windows.h>
 #include <conio.h>
 #include <list>
-#include <sstream>
 #include <iomanip>
 #include "Admin.h"
 #include "GiaoVien.h"
