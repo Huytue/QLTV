@@ -4,7 +4,7 @@ Nguyen Huy Tue
 Nguyen Vinh Hien
 Tran Thi Thuc Trinh
 Mai Xuan Tri
-Tran Cong Hoa
+
 	
 */
 // Khai bao thu vien:
